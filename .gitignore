@@ -1,0 +1,22 @@
+*.class
+
+#package file
+*.jar
+*.war
+*.ear
+
+#kidff3 ignore
+*.orig
+
+#maven ignore
+target/
+
+#idea
+.idea/
+/idea/
+*.ipr
+*.iml
+*.iws
+
+/src/main/resources/datasource.properties
+/src/main/resources/followme.properties
