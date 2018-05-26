@@ -251,7 +251,7 @@
 
 
     <build>
-        <finalName>follomeBackEnd</finalName>
+        <finalName>follome</finalName>
         <plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
