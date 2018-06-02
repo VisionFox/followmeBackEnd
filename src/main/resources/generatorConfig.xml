@@ -81,7 +81,7 @@
             <!--<columnOverride column="sub_images" jdbcType="VARCHAR" />-->
         <!--</table>-->
 
-        <table tableName="followme_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="followme_attraction" domainObjectName="Attraction" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
         <!-- mybatis插件的搭建 -->
     </context>
