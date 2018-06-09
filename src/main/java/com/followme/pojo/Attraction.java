@@ -25,7 +25,9 @@ public class Attraction {
 
     private Double hot;
 
-    public Attraction(Long attractionid, String name, String type, BigDecimal price, String area, String addr, String description, Double latitude, Double longitude, String level, Double hot) {
+    private String imageurl;
+
+    public Attraction(Long attractionid, String name, String type, BigDecimal price, String area, String addr, String description, Double latitude, Double longitude, String level, Double hot, String imageurl) {
         this.attractionid = attractionid;
         this.name = name;
         this.type = type;
@@ -37,6 +39,7 @@ public class Attraction {
         this.longitude = longitude;
         this.level = level;
         this.hot = hot;
+        this.imageurl = imageurl;
     }
 
     public Attraction() {
@@ -129,5 +132,13 @@ public class Attraction {
 
     public void setHot(Double hot) {
         this.hot = hot;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl == null ? null : imageurl.trim();
     }
 }
