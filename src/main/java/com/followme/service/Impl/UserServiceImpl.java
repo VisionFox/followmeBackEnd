@@ -35,17 +35,14 @@ public class UserServiceImpl implements IUserService {
         }
 
         user.setPassword(StringUtils.EMPTY);
+        user.setCreateTime(null);
+        user.setUpdateTime(null);
         return ServerResponse.createBySuccess("登录成功", user);
     }
 
 
     @Override
     public ServerResponse<String> register(User user) {
-//        int resultCount = userMapper.checkUsername(user.getUsername());
-//        if (resultCount > 0) {
-//            return ServerResponse.createByErrorMessage("用户名已存在");
-//        }
-
         if (user.getUsername() == null || user.getPassword() == null || user.getEmail() == null
                 || user.getPhone() == null || user.getQuestion() == null || user.getAnswer() == null) {
             return ServerResponse.createByErrorMessage("注册信息不完整，请检查");
@@ -59,12 +56,6 @@ public class UserServiceImpl implements IUserService {
         if (!validResponse.isSuccess()) {
             return validResponse;
         }
-
-//        int resultCount = userMapper.checkEmail(user.getEmail());
-//        if (resultCount > 0) {
-//            return ServerResponse.createByErrorMessage("email已存在");
-//        }
-
         user.setRole(Const.Role.ROLE_CUSTOMER);
         //MD5加密
         user.setPassword(MD5Util.MD5EncodeUtf8(user.getPassword()));
