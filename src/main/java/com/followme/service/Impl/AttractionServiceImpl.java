@@ -18,10 +18,21 @@ public class AttractionServiceImpl implements IAttractionService {
     @Override
     public ServerResponse<List<Attraction>> getAttractionsInfoByArea(String area) {
         if (StringUtils.isBlank(area)) {
-            List<Attraction> res = attractionMapper.getAttractionsInfoByArea("陕西·西安·长安区");
-            return ServerResponse.createBySuccess(res);
+            return ServerResponse.createByErrorMessage("区域输入有误");
         }
         List<Attraction> res = attractionMapper.getAttractionsInfoByArea(area);
         return ServerResponse.createBySuccess(res);
+    }
+
+    @Override
+    public ServerResponse<Attraction> getAttractionsInfoByAattractionId(Long attractionId) {
+        if (attractionId == null) {
+            return ServerResponse.createByErrorMessage("景点id错误");
+        }
+        Attraction attraction = attractionMapper.selectByPrimaryKey(attractionId);
+        if (attraction == null) {
+            return ServerResponse.createByErrorMessage("此景点不存在");
+        }
+        return ServerResponse.createBySuccess(attraction);
     }
 }

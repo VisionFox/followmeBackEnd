@@ -43,8 +43,9 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public ServerResponse<String> register(User user) {
-        if (user.getUsername() == null || user.getPassword() == null || user.getEmail() == null
-                || user.getPhone() == null || user.getQuestion() == null || user.getAnswer() == null) {
+        if (StringUtils.isBlank(user.getUsername()) || StringUtils.isBlank(user.getPassword()) ||
+                StringUtils.isBlank(user.getAnswer()) || StringUtils.isBlank(user.getQuestion())
+                || StringUtils.isBlank(user.getEmail()) || StringUtils.isBlank(user.getPhone())) {
             return ServerResponse.createByErrorMessage("注册信息不完整，请检查");
         }
 
